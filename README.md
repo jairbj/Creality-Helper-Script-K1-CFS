@@ -27,12 +27,14 @@ In the meantime I would advise enabling skirt/skirt loops in your slicer to purg
 ---
 
 ### Currently tested modules
-The following modules have been tested on my K1 (FW 2.3.5.34) and seem to be working ok for me but as always use as your own risk.
-- 1. Install Moonraker and Nginx                              │
-- 2. Install Fluidd (port 4408)
-- 5. Klipper Gcode Shell Command
-- 10. Improved Shapers Calibrations
-- 22. Mobileraker Companion
+The following modules have been tested on my K1 (FW 2.3.5.33) and seem to be working ok for me but as always use as your own risk.
+- 1 - Moonraker and Nginx
+- 2 - Fluidd (port 4408)
+- 4 - Entware
+- 5 - Klipper Gcode Shell Command
+- 10 - Improved Shapers Calibrations
+- 22 - Mobileraker Companion
+
 
 ---
 

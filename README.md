@@ -28,13 +28,13 @@ In the meantime I would advise enabling skirt/skirt loops in your slicer to purg
 
 ### Currently tested modules
 The following modules have been tested on my K1 (FW 2.3.5.33) and seem to be working ok for me but as always use as your own risk.
-- 1 - Moonraker and Nginx
+- 1 - Moonraker and Nginx*
 - 2 - Fluidd (port 4408)
 - 4 - Entware
+- 6 - Klipper Adaptive Meshing & Purging*
 - 5 - Klipper Gcode Shell Command
 - 10 - Improved Shapers Calibrations
 - 22 - Mobileraker Companion
-
 
 ---
 
@@ -52,6 +52,9 @@ wget http://bin.entware.net/mipselsf-k3.4/installer/generic.sh -O - | sh
 3. Add Entware to your path:
 ```
 export PATH=/opt/bin:/opt/sbin:$PATH
+echo 'export PATH="/opt/bin:/opt/sbin:$PATH"' > /etc/profile.d/entware.sh
+echo '#!/bin/sh\n/opt/etc/init.d/rc.unslung "$1"' > /etc/init.d/S50unslung
+chmod 755 /etc/init.d/S50unslung
 ```
 4. Update and install Git:
 ```
@@ -93,6 +96,19 @@ To prevent seeing an error about the repository when installing Moonraker run th
 ```
 git config --global --add safe.directory /usr/data/moonraker/moonraker
 ```
+
+---
+
+### KAMP
+Due to creality START_PRINT script runs before the filament is loaded into extruder I have to separate the purge from this script.
+
+When starting print from Creality Print or from printer screen set **Calibration** to **OFF** for using adaptive bed mesh.
+
+Also, add the folowing to your 'Machine Start G-code':
+```
+ADAPT_PURGE_MOD
+```
+
 
 ---
 
